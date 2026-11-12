@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ROUTE CREW · 루트크루</title>
+  <meta name="description" content="루트크루 — 내 주변에서 시작되는 위치 기반 러닝 커뮤니티 플랫폼. 2026 한세대학교 시각정보디자인과 졸업전시 콘텐츠디자인 스튜디오.">
+  <meta name="theme-color" content="#050607">
+  <link rel="icon" href="assets/svg/logo-mint.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400..900;1,900&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===================== SIDE NAVIGATION (right) ===================== -->
+<nav class="side-nav" id="sideNav" aria-label="섹션 내비게이션">
+  <a class="sn-logo" href="#hero" aria-label="ROUTE CREW 처음으로"><img src="assets/svg/logo-mint.svg" alt=""></a>
+  <button class="sn-arrow" id="snPrev" type="button" aria-label="이전 섹션">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>
+  </button>
+  <div class="rail" id="rail">
+    <svg viewBox="0 0 34 600" preserveAspectRatio="none" aria-hidden="true">
+      <path class="rail__track" d="M17 0 C 32 50, 2 100, 17 150 S 32 250, 17 300 S 2 400, 17 450 S 32 550, 17 600"/>
+      <path class="rail__path" id="railPath" d="M17 0 C 32 50, 2 100, 17 150 S 32 250, 17 300 S 2 400, 17 450 S 32 550, 17 600"/>
+    </svg>
+    <i class="rail__runner" id="railRunner"></i>
+  </div>
+  <button class="sn-arrow" id="snNext" type="button" aria-label="다음 섹션">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+  <div class="sn-km" aria-label="스크롤 진행 거리"><b id="km">0.00</b><small>/ 5.00 km</small></div>
+</nav>
+
+<main>
+<!-- ===================== 01 HERO ===================== -->
+<section class="hero" id="hero" data-theme="dark" data-cp="시작">
+  <div class="container hero__meta">
+    <p class="meta-left">2026 HANSEI UNIVERSITY<br>VISUAL COMMUNICATION DESIGN<br>GRADUATION EXHIBITION</p>
+    <p class="meta-right">CONTENTS DESIGN STUDIO<i>|</i>LOCAL RUNNING COMMUNITY</p>
+  </div>
+
+  <div class="hero__stage" id="heroStage">
+    <div class="hero__route" id="heroRoute"><img src="assets/svg/route-line.svg" alt=""></div>
+    <div class="hero__mockup" id="heroMockup">
+      <img src="assets/img/hero-mockup.png" alt="루트크루 앱 홈 화면과 내 주변 크루 지도 화면 목업">
+    </div>
+    <div class="noti-wrap">
+      <div class="noti" id="heroNoti" role="status">
+        <span class="noti__icon"><img src="assets/svg/noti-icon.svg" alt=""></span>
+        <span>
+          <span class="noti__title" style="display:block">한강 야간 러닝 번개가 열렸어요!</span>
+          <span class="noti__sub" style="display:block">오늘 20:00 · 반포 안내소 앞 · 참여 4/8명</span>
+        </span>
+      </div>
+    </div>
+    <div class="pace-chip" id="heroChip">내 주변 크루 5개 · 1.2km 이내</div>
+  </div>
+
+  <div class="container hero__copy" id="heroCopy">
+    <div class="hero__brand">
+      <img src="assets/svg/app-icon.svg" alt="루트크루 앱 아이콘">
+      <p>나만의 속도로,<br>나만의 길을 만들다.</p>
+    </div>
+    <h1 class="hero__title" aria-label="ROUTE CREW">
+      <span class="line"><span>ROUTE</span></span>
+      <span class="line"><span>CREW</span></span>
+    </h1>
+    <p class="hero__sub">루트크루 · 내 주변에서 시작되는 위치 기반 러닝 커뮤니티 플랫폼</p>
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true">SCROLL <i></i></div>
+</section>
+
+<!-- ===================== 02 ABOUT ===================== -->
+<section class="about" id="about" data-cp="소개">
+  <img class="blob blob--a3" src="assets/svg/blob-a3.svg" alt="">
+  <img class="blob blob--a2" src="assets/svg/blob-a2.svg" alt="">
+  <img class="blob blob--a1" src="assets/svg/blob-a1.svg" alt="">
+  <div class="container about__grid">
+    <div data-reveal>
+      <p class="eyebrow">About Route Crew</p>
+      <h2 class="h2">Route를 만들고, Crew와 함께 달리고,<br>경험을 아카이빙하다.</h2>
+      <p class="lead">루트크루는 사용자가 직접 만든 경로(Route)를 중심으로 취향·속도·지역이 맞는 사람들과 연결되는 위치 기반 러닝 커뮤니티 플랫폼입니다. 주변 크루를 탐색하고, 정기·번개 러닝에 자유롭게 참여하며, 나만의 코스를 기록하고 공유할 수 있어요.</p>
+    </div>
+    <div class="orbs" id="orbs">
+      <div class="orb-item">
+        <div class="orb"><img class="orb__glass" src="assets/svg/glass-ellipse.svg" alt=""><span class="orb__hl"><img src="assets/svg/glass-highlight.svg" alt=""></span><b>Local</b></div>
+        <p>현재 위치 중심의<br>가까운 러닝 연결</p>
+      </div>
+      <span class="times" aria-hidden="true">×</span>
+      <div class="orb-item">
+        <div class="orb"><img class="orb__glass" src="assets/svg/glass-ellipse.svg" alt=""><span class="orb__hl"><img src="assets/svg/glass-highlight.svg" alt=""></span><b>Community</b></div>
+        <p>정기·번개로 유연한<br>사람 중심 참여</p>
+      </div>
+      <span class="times" aria-hidden="true">×</span>
+      <div class="orb-item">
+        <div class="orb"><img class="orb__glass" src="assets/svg/glass-ellipse.svg" alt=""><span class="orb__hl"><img src="assets/svg/glass-highlight.svg" alt=""></span><b>Route</b></div>
+        <p>나만의 경로를<br>공유하고 함께 달림</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 03 DESIGN SYSTEM ===================== -->
+<section class="brand" id="brand" data-cp="디자인 시스템">
+  <div class="container">
+    <p class="eyebrow" data-reveal>Design System</p>
+    <div class="brand__grid">
+      <div>
+        <div class="ds-block" data-reveal>
+          <h3 class="ds-head">LOGO</h3>
+          <div class="logo-row">
+            <div class="logo-main">
+              <img src="assets/svg/app-icon-ds.svg" alt="루트크루 앱 아이콘">
+              <span class="ds-cap">APP ICON</span>
+            </div>
+            <div class="logo-vars">
+              <div class="logo-vars__icons">
+                <img src="assets/svg/logo-mint.svg" alt="민트 배경 로고">
+                <img src="assets/svg/logo-dark.svg" alt="블랙 배경 로고">
+              </div>
+              <div class="wordmark">
+                <img src="assets/svg/logo-wordmark-icon.svg" alt="">
+                <div><b>Route Crew</b><small>루트크루</small></div>
+              </div>
+              <span class="ds-cap">VARIATION · WORDMARK</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ds-block" data-reveal>
+          <h3 class="ds-head">TYPOGRAPHY</h3>
+          <div class="type-top">
+            <p class="type-hero" id="typeHero">Aa 가</p>
+            <div class="type-name">
+              <b>Pretendard</b>
+              <small>Display 28 · Title 24 · Heading 20 / 18 / 16<br>Body 14 · Caption 12 · Label 11</small>
+            </div>
+          </div>
+          <ul class="weights" id="weights">
+            <li style="font-weight:800"><span style="font-weight:800">ExtraBold</span>나만의 속도로, 나만의 길을 만들다. 루트크루</li>
+            <li style="font-weight:700"><span style="font-weight:700">Bold</span>나만의 속도로, 나만의 길을 만들다. 루트크루</li>
+            <li style="font-weight:500"><span style="font-weight:500">Medium</span>나만의 속도로, 나만의 길을 만들다. 루트크루</li>
+            <li style="font-weight:400"><span style="font-weight:400">Regular</span>나만의 속도로, 나만의 길을 만들다. 루트크루</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="ds-block colors" id="colors" data-reveal>
+          <h3 class="ds-head">COLOR</h3>
+          <p class="colors__label">Brand Mint</p>
+          <div class="swatches" id="mintBar">
+            <button class="swatch" style="background:#EAFEF3" data-hex="#EAFEF3" aria-label="Mint 100 #EAFEF3 복사"></button>
+            <button class="swatch" style="background:#C2FFDE" data-hex="#C2FFDE" aria-label="Mint 200 #C2FFDE 복사"></button>
+            <button class="swatch" style="background:#96FBC4" data-hex="#96FBC4" aria-label="Mint 300 #96FBC4 복사"></button>
+            <button class="swatch" style="background:#2CF1B0" data-hex="#2CF1B0" aria-label="Mint 500 #2CF1B0 복사"></button>
+            <button class="swatch" style="background:#16C98D" data-hex="#16C98D" aria-label="Mint 600 #16C98D 복사"></button>
+            <button class="swatch" style="background:#13834F" data-hex="#13834F" aria-label="Mint 800 #13834F 복사"></button>
+          </div>
+          <div class="swatch-labels">
+            <span>100<small>#EAFEF3</small></span><span>200<small>#C2FFDE</small></span><span>300<small>#96FBC4</small></span>
+            <span>500<small>#2CF1B0</small></span><span>600<small>#16C98D</small></span><span>800<small>#13834F</small></span>
+          </div>
+          <p class="colors__label">Grayscale</p>
+          <div class="swatches swatches--gray" id="grayBar">
+            <button class="swatch" style="background:#F4F4F4" data-hex="#F4F4F4" aria-label="Gray 100 #F4F4F4 복사"></button>
+            <button class="swatch" style="background:#DADADA" data-hex="#DADADA" aria-label="Gray 200 #DADADA 복사"></button>
+            <button class="swatch" style="background:#8E8E93" data-hex="#8E8E93" aria-label="Gray 500 #8E8E93 복사"></button>
+            <button class="swatch" style="background:#1C1C1E" data-hex="#1C1C1E" aria-label="Gray 900 #1C1C1E 복사"></button>
+          </div>
+          <div class="swatch-labels">
+            <span>100<small>#F4F4F4</small></span><span>200<small>#DADADA</small></span><span>500<small>#8E8E93</small></span><span>900<small>#1C1C1E</small></span>
+          </div>
+          <div class="points">
+            <p class="colors__label">Point</p>
+            <button class="point" data-hex="#FF004D" aria-label="Red #FF004D 복사"><i style="background:#FF004D"></i><span><b>Red</b><small>#FF004D</small></span></button>
+            <button class="point" data-hex="#FFFDC7" aria-label="Yellow #FFFDC7 복사"><i style="background:#FFFDC7;box-shadow:inset 0 0 0 1px #eee"></i><span><b>Yellow</b><small>#FFFDC7</small></span></button>
+          </div>
+        </div>
+
+        <div class="ds-block" data-reveal>
+          <h3 class="ds-head">ICONS</h3>
+          <div class="iconset" id="iconset" role="img" aria-label="라인 아이콘(기본·비활성)과 필 아이콘(선택·활성) 세트">
+<svg width="254" height="120" viewBox="0 0 254 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="&#235;&#176;&#176;&#235;&#132;&#136;">
+<g id="05 Design System">
+<g id="Icon Set">
+<rect width="254" height="120" rx="10" fill="white"/>
+<g id="Icon/Line/home">
+<g id="Group">
+<path id="Vector" d="M14.1667 27.3438L19 23.4167L23.8333 27.3438V32.4792C23.8333 32.6394 23.7697 32.7931 23.6564 32.9064C23.5431 33.0197 23.3894 33.0834 23.2292 33.0834H20.8125V29.4584H17.1875V33.0834H14.7708C14.6106 33.0834 14.4569 33.0197 14.3436 32.9064C14.2303 32.7931 14.1667 32.6394 14.1667 32.4792V27.3438Z" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Fill/home">
+<g id="Group_2">
+<path id="Vector_2" fill-rule="evenodd" clip-rule="evenodd" d="M14.1667 85.3438L19 81.4167L23.8333 85.3438V90.4792C23.8333 90.6394 23.7697 90.7931 23.6564 90.9064C23.5431 91.0197 23.3894 91.0834 23.2292 91.0834H20.5104V87.7604H17.4896V91.0834H14.7708C14.6106 91.0834 14.4569 91.0197 14.3436 90.9064C14.2303 90.7931 14.1667 90.6394 14.1667 90.4792V85.3438Z" fill="#1C1C1E"/>
+</g>
+</g>
+<g id="Icon/Line/crew">
+<g id="Group_3">
+<path id="Vector_3" d="M35.1875 27.6458C36.1885 27.6458 37 26.8343 37 25.8333C37 24.8323 36.1885 24.0208 35.1875 24.0208C34.1865 24.0208 33.375 24.8323 33.375 25.8333C33.375 26.8343 34.1865 27.6458 35.1875 27.6458Z" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" d="M31.8646 32.4791C31.8646 30.6666 33.375 29.4583 35.1875 29.4583C37 29.4583 38.5104 30.6666 38.5104 32.4791" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_5" d="M39.7188 27.9479C40.5529 27.9479 41.2292 27.2717 41.2292 26.4375C41.2292 25.6033 40.5529 24.9271 39.7188 24.9271C38.8846 24.9271 38.2083 25.6033 38.2083 26.4375C38.2083 27.2717 38.8846 27.9479 39.7188 27.9479Z" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_6" d="M39.1146 29.5187C39.2958 29.5187 39.5375 29.4583 39.7188 29.4583C41.2292 29.4583 42.4375 30.5458 42.4375 32.1771" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Fill/crew">
+<g id="Group_4">
+<path id="Vector_7" d="M35.1875 85.7667C36.2553 85.7667 37.1208 84.9011 37.1208 83.8334C37.1208 82.7656 36.2553 81.9 35.1875 81.9C34.1198 81.9 33.2542 82.7656 33.2542 83.8334C33.2542 84.9011 34.1198 85.7667 35.1875 85.7667Z" fill="#1C1C1E"/>
+<path id="Vector_8" d="M31.5625 90.7813C31.5625 88.7875 33.1938 87.3375 35.1875 87.3375C37.1813 87.3375 38.8125 88.7875 38.8125 90.7813H31.5625Z" fill="#1C1C1E"/>
+<path id="Vector_9" d="M39.7187 86.0688C40.6197 86.0688 41.35 85.3384 41.35 84.4375C41.35 83.5366 40.6197 82.8063 39.7187 82.8063C38.8178 82.8063 38.0875 83.5366 38.0875 84.4375C38.0875 85.3384 38.8178 86.0688 39.7187 86.0688Z" fill="#1C1C1E"/>
+<path id="Vector_10" d="M39.5375 87.3979C41.2292 87.3979 42.7396 88.5459 42.7396 90.3584V90.7813H39.5375C39.5375 89.5729 39.1146 88.425 38.3292 87.6396C38.6917 87.4584 39.1146 87.3979 39.5375 87.3979Z" fill="#1C1C1E"/>
+</g>
+</g>
+<g id="Icon/Line/route">
+<g id="Group_5">
+<path id="Vector_11" d="M67.5625 24.9271L71.1875 23.4167L74.8125 24.9271L78.4375 23.4167V31.5729L74.8125 33.0834L71.1875 31.5729L67.5625 33.0834V24.9271Z" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_12" d="M71.1875 23.4167V31.5729M74.8125 24.9271V33.0834" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Fill/route">
+<g id="Group_6">
+<path id="Vector_13" d="M67.5625 82.9271L70.7646 81.5979V89.7542L67.5625 91.0834V82.9271ZM71.6104 81.5979L74.3896 82.7459V90.9021L71.6104 89.7542V81.5979ZM75.2354 82.7459L78.4375 81.4167V89.5729L75.2354 90.9021V82.7459Z" fill="#1C1C1E"/>
+</g>
+</g>
+<g id="Icon/Line/my">
+<g id="Group_7">
+<path id="Vector_14" d="M91 28.25C92.3347 28.25 93.4166 27.168 93.4166 25.8334C93.4166 24.4987 92.3347 23.4167 91 23.4167C89.6653 23.4167 88.5833 24.4987 88.5833 25.8334C88.5833 27.168 89.6653 28.25 91 28.25Z" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_15" d="M86.1667 33.3855C86.1667 30.9688 88.3417 29.4584 91 29.4584C93.6583 29.4584 95.8333 30.9688 95.8333 33.3855" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Line/bell" clip-path="url(#clip0_1595_48424)">
+<g id="Group_8">
+<path id="Vector_16" d="M105.375 30.6666V27.6458C105.375 26.6844 105.757 25.7624 106.437 25.0826C107.117 24.4027 108.039 24.0208 109 24.0208C109.961 24.0208 110.883 24.4027 111.563 25.0826C112.243 25.7624 112.625 26.6844 112.625 27.6458V30.6666L113.531 31.875H104.469L105.375 30.6666Z" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_17" d="M107.792 33.3854C107.792 33.7058 107.919 34.0132 108.146 34.2398C108.372 34.4664 108.68 34.5937 109 34.5937C109.32 34.5937 109.628 34.4664 109.854 34.2398C110.081 34.0132 110.208 33.7058 110.208 33.3854" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Fill/bell">
+<g id="Group_9">
+<path id="Vector_18" d="M105.375 88.6666V85.6458C105.375 84.6844 105.757 83.7624 106.437 83.0826C107.117 82.4027 108.039 82.0208 109 82.0208C109.961 82.0208 110.883 82.4027 111.563 83.0826C112.243 83.7624 112.625 84.6844 112.625 85.6458V88.6666L113.531 89.875H104.469L105.375 88.6666ZM107.671 90.9625H110.329C110.329 91.315 110.189 91.6531 109.94 91.9023C109.691 92.1516 109.353 92.2916 109 92.2916C108.647 92.2916 108.309 92.1516 108.06 91.9023C107.811 91.6531 107.671 91.315 107.671 90.9625Z" fill="#1C1C1E"/>
+</g>
+</g>
+<g id="Icon/Line/pin">
+<g id="Group_10">
+<path id="Vector_19" d="M127 33.6875C127 33.6875 122.771 29.9417 122.771 26.7396C122.771 25.618 123.216 24.5423 124.01 23.7491C124.803 22.956 125.878 22.5104 127 22.5104C128.122 22.5104 129.197 22.956 129.99 23.7491C130.784 24.5423 131.229 25.618 131.229 26.7396C131.229 29.9417 127 33.6875 127 33.6875Z" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_20" d="M127 28.25C127.834 28.25 128.51 27.5738 128.51 26.7396C128.51 25.9054 127.834 25.2292 127 25.2292C126.166 25.2292 125.49 25.9054 125.49 26.7396C125.49 27.5738 126.166 28.25 127 28.25Z" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Fill/pin">
+<g id="Group_11">
+<path id="Vector_21" fill-rule="evenodd" clip-rule="evenodd" d="M127 91.6875C127 91.6875 122.771 87.9417 122.771 84.7396C122.771 83.618 123.216 82.5423 124.01 81.7491C124.803 80.956 125.878 80.5104 127 80.5104C128.122 80.5104 129.197 80.956 129.99 81.7491C130.784 82.5423 131.229 83.618 131.229 84.7396C131.229 87.9417 127 91.6875 127 91.6875ZM127 86.25C127.401 86.25 127.785 86.0909 128.068 85.8076C128.351 85.5244 128.51 85.1402 128.51 84.7396C128.51 84.339 128.351 83.9548 128.068 83.6716C127.785 83.3883 127.401 83.2292 127 83.2292C126.599 83.2292 126.215 83.3883 125.932 83.6716C125.649 83.9548 125.49 84.339 125.49 84.7396C125.49 85.1402 125.649 85.5244 125.932 85.8076C126.215 86.0909 126.599 86.25 127 86.25Z" fill="#1C1C1E"/>
+</g>
+</g>
+<g id="Icon/Line/search">
+<g id="Group_12">
+<path id="Vector_22" d="M144.396 31.5729C146.565 31.5729 148.323 29.8147 148.323 27.6458C148.323 25.477 146.565 23.7188 144.396 23.7188C142.227 23.7188 140.469 25.477 140.469 27.6458C140.469 29.8147 142.227 31.5729 144.396 31.5729Z" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_23" d="M147.417 30.6667L150.135 33.3854" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Fill/search">
+<g id="Group_13">
+<path id="Vector_24" d="M144.396 89.4521C146.498 89.4521 148.202 87.748 148.202 85.6458C148.202 83.5437 146.498 81.8396 144.396 81.8396C142.294 81.8396 140.59 83.5437 140.59 85.6458C140.59 87.748 142.294 89.4521 144.396 89.4521Z" stroke="#1C1C1E" stroke-width="1.57083" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_25" d="M147.417 88.6667L150.135 91.3854" stroke="#1C1C1E" stroke-width="1.57083" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Line/clock">
+<g id="Group_14">
+<path id="Vector_26" d="M163 33.6875C166.003 33.6875 168.438 31.253 168.438 28.25C168.438 25.247 166.003 22.8125 163 22.8125C159.997 22.8125 157.562 25.247 157.562 28.25C157.562 31.253 159.997 33.6875 163 33.6875Z" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_27" d="M163 25.5312V28.25L164.813 29.4583" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Line/calendar">
+<g id="Group_15">
+<path id="Vector_28" d="M184.625 24.3229H177.375C176.708 24.3229 176.167 24.8639 176.167 25.5312V31.875C176.167 32.5423 176.708 33.0833 177.375 33.0833H184.625C185.292 33.0833 185.833 32.5423 185.833 31.875V25.5312C185.833 24.8639 185.292 24.3229 184.625 24.3229Z" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_29" d="M176.167 27.0416H185.833M178.885 23.1146V25.5312M183.115 23.1146V25.5312" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Line/heart">
+<g id="Group_16">
+<path id="Vector_30" d="M199 33.0833C199 33.0833 194.469 30.3041 194.469 26.9208C194.511 26.414 194.701 25.9307 195.015 25.5308C195.329 25.1309 195.754 24.832 196.236 24.6712C196.719 24.5103 197.238 24.4947 197.729 24.6261C198.22 24.7575 198.662 25.0302 199 25.4104C199.338 25.0302 199.78 24.7575 200.271 24.6261C200.762 24.4947 201.281 24.5103 201.764 24.6712C202.246 24.832 202.671 25.1309 202.985 25.5308C203.299 25.9307 203.489 26.414 203.531 26.9208C203.531 30.3041 199 33.0833 199 33.0833Z" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Fill/heart">
+<g id="Group_17">
+<path id="Vector_31" d="M199 91.0833C199 91.0833 194.469 88.3041 194.469 84.9208C194.511 84.414 194.701 83.9307 195.015 83.5308C195.329 83.1309 195.754 82.832 196.236 82.6712C196.719 82.5103 197.238 82.4947 197.729 82.6261C198.22 82.7575 198.662 83.0302 199 83.4104C199.338 83.0302 199.78 82.7575 200.271 82.6261C200.762 82.4947 201.281 82.5103 201.764 82.6712C202.246 82.832 202.671 83.1309 202.985 83.5308C203.299 83.9307 203.489 84.414 203.531 84.9208C203.531 88.3041 199 91.0833 199 91.0833Z" fill="#1C1C1E"/>
+</g>
+</g>
+<g id="Icon/Line/bookmark">
+<g id="Group_18">
+<path id="Vector_32" d="M213.979 23.4167H220.021C220.181 23.4167 220.335 23.4803 220.448 23.5936C220.561 23.7069 220.625 23.8606 220.625 24.0209V33.3854L217 30.9688L213.375 33.3854V24.0209C213.375 23.8606 213.439 23.7069 213.552 23.5936C213.665 23.4803 213.819 23.4167 213.979 23.4167Z" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Fill/bookmark">
+<g id="Group_19">
+<path id="Vector_33" d="M213.979 81.4167H220.021C220.181 81.4167 220.335 81.4803 220.448 81.5936C220.561 81.7069 220.625 81.8606 220.625 82.0209V91.3854L217 88.9688L213.375 91.3854V82.0209C213.375 81.8606 213.439 81.7069 213.552 81.5936C213.665 81.4803 213.819 81.4167 213.979 81.4167Z" fill="#1C1C1E"/>
+</g>
+</g>
+<g id="Icon/Line/comment">
+<g id="Group_20">
+<path id="Vector_34" d="M230.771 24.0208H239.229C239.389 24.0208 239.543 24.0845 239.656 24.1978C239.77 24.3111 239.833 24.4647 239.833 24.625V30.6666C239.833 30.8269 239.77 30.9806 239.656 31.0939C239.543 31.2072 239.389 31.2708 239.229 31.2708H234.396L231.677 33.3854V31.2708H230.771C230.611 31.2708 230.457 31.2072 230.344 31.0939C230.23 30.9806 230.167 30.8269 230.167 30.6666V24.625C230.167 24.4647 230.23 24.3111 230.344 24.1978C230.457 24.0845 230.611 24.0208 230.771 24.0208Z" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Fill/comment">
+<g id="Group_21">
+<path id="Vector_35" d="M230.771 82.0208H239.229C239.389 82.0208 239.543 82.0845 239.656 82.1978C239.77 82.3111 239.833 82.4647 239.833 82.625V88.6666C239.833 88.8269 239.77 88.9806 239.656 89.0939C239.543 89.2072 239.389 89.2708 239.229 89.2708H234.396L231.677 91.3854V89.2708H230.771C230.611 89.2708 230.457 89.2072 230.344 89.0939C230.23 88.9806 230.167 88.8269 230.167 88.6666V82.625C230.167 82.4647 230.23 82.3111 230.344 82.1978C230.457 82.0845 230.611 82.0208 230.771 82.0208Z" fill="#1C1C1E"/>
+</g>
+</g>
+<g id="Icon/Line/share">
+<g id="Group_22">
+<path id="Vector_36" d="M19 50.0625V43.4166M16.5833 45.5312L19 43.1146L21.4167 45.5312M14.7708 48.25V52.1771C14.7708 52.4174 14.8663 52.6479 15.0363 52.8179C15.2062 52.9878 15.4367 53.0833 15.6771 53.0833H22.3229C22.5633 53.0833 22.7938 52.9878 22.9637 52.8179C23.1337 52.6479 23.2292 52.4174 23.2292 52.1771V48.25" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Line/plus">
+<g id="Group_23">
+<path id="Vector_37" d="M37 44.0208V52.4791M32.7708 48.25H41.2292" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Line/check">
+<g id="Group_24">
+<path id="Vector_38" d="M50.7708 48.5521L53.4896 51.2708L59.2292 45.5312" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Line/close">
+<g id="Group_25">
+<path id="Vector_39" d="M69.375 44.625L76.625 51.875M76.625 44.625L69.375 51.875" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Line/chevron-left">
+<g id="Group_26">
+<path id="Vector_40" d="M92.8125 44.0208L88.5833 48.25L92.8125 52.4791" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Fill/chevron-left">
+<g id="Group_27">
+<path id="Vector_41" d="M92.8125 102.021L88.5833 106.25L92.8125 110.479" stroke="#1C1C1E" stroke-width="1.69167" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Line/chevron-right">
+<g id="Group_28">
+<path id="Vector_42" d="M107.188 44.0208L111.417 48.25L107.188 52.4791" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Fill/chevron-right">
+<g id="Group_29">
+<path id="Vector_43" d="M107.188 102.021L111.417 106.25L107.188 110.479" stroke="#1C1C1E" stroke-width="1.69167" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Line/lightning">
+<g id="Group_30">
+<path id="Vector_44" d="M145.604 42.5104L140.771 49.1563H144.396L143.792 53.9896L149.229 46.7396H145.604V42.5104Z" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Fill/lightning">
+<g id="Group_31">
+<path id="Vector_45" d="M145.604 100.51L140.771 107.156H144.396L143.792 111.99L149.229 104.74H145.604V100.51Z" fill="#1C1C1E"/>
+</g>
+</g>
+<g id="Icon/Line/timer">
+<g id="Group_32">
+<path id="Vector_46" d="M163 53.6875C165.503 53.6875 167.531 51.6588 167.531 49.1562C167.531 46.6537 165.503 44.625 163 44.625C160.497 44.625 158.469 46.6537 158.469 49.1562C158.469 51.6588 160.497 53.6875 163 53.6875Z" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_47" d="M163 49.1563V46.7396M161.49 42.5104H164.51M166.927 44.9271L167.833 44.0209" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Line/photo">
+<g id="Group_33">
+<path id="Vector_48" d="M184.927 44.0208H177.073C176.406 44.0208 175.865 44.5618 175.865 45.2291V51.2708C175.865 51.9382 176.406 52.4791 177.073 52.4791H184.927C185.594 52.4791 186.135 51.9382 186.135 51.2708V45.2291C186.135 44.5618 185.594 44.0208 184.927 44.0208Z" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_49" d="M179.188 48.1292C179.788 48.1292 180.275 47.6423 180.275 47.0417C180.275 46.4411 179.788 45.9542 179.188 45.9542C178.587 45.9542 178.1 46.4411 178.1 47.0417C178.1 47.6423 178.587 48.1292 179.188 48.1292Z" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_50" d="M176.167 51.2708L179.49 48.5521L181.604 50.3646L183.417 48.8541L185.833 50.9687" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Fill/photo">
+<g id="Group_34">
+<path id="Vector_51" fill-rule="evenodd" clip-rule="evenodd" d="M177.073 101.719H184.927C185.248 101.719 185.555 101.846 185.782 102.073C186.008 102.299 186.135 102.607 186.135 102.927V109.573C186.135 109.893 186.008 110.201 185.782 110.427C185.555 110.654 185.248 110.781 184.927 110.781H177.073C176.752 110.781 176.445 110.654 176.219 110.427C175.992 110.201 175.865 109.893 175.865 109.573V102.927C175.865 102.607 175.992 102.299 176.219 102.073C176.445 101.846 176.752 101.719 177.073 101.719ZM179.188 106.25C179.508 106.25 179.815 106.123 180.042 105.896C180.269 105.669 180.396 105.362 180.396 105.042C180.396 104.721 180.269 104.414 180.042 104.187C179.815 103.961 179.508 103.833 179.188 103.833C178.867 103.833 178.56 103.961 178.333 104.187C178.106 104.414 177.979 104.721 177.979 105.042C177.979 105.362 178.106 105.669 178.333 105.896C178.56 106.123 178.867 106.25 179.188 106.25ZM176.771 109.573H185.229V108.848L183.417 107.277L181.604 108.788L179.49 106.975L176.771 109.029V109.573Z" fill="#1C1C1E"/>
+</g>
+</g>
+<g id="Icon/Line/navigate">
+<g id="Group_35">
+<path id="Vector_52" d="M203.833 43.4167L194.167 47.6459L198.396 48.8542L199.604 53.0834L203.833 43.4167Z" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<g id="Icon/Fill/navigate">
+<g id="Group_36">
+<path id="Vector_53" d="M203.833 101.417L194.167 105.646L198.396 106.854L199.604 111.083L203.833 101.417Z" fill="#1C1C1E"/>
+</g>
+</g>
+<g id="Icon/Fill/more">
+<g id="Group_37">
+<path id="Vector_54" d="M213.073 107.519C213.774 107.519 214.342 106.951 214.342 106.25C214.342 105.549 213.774 104.981 213.073 104.981C212.372 104.981 211.804 105.549 211.804 106.25C211.804 106.951 212.372 107.519 213.073 107.519Z" fill="#1C1C1E"/>
+<path id="Vector_55" d="M217 107.519C217.701 107.519 218.269 106.951 218.269 106.25C218.269 105.549 217.701 104.981 217 104.981C216.299 104.981 215.731 105.549 215.731 106.25C215.731 106.951 216.299 107.519 217 107.519Z" fill="#1C1C1E"/>
+<path id="Vector_56" d="M220.927 107.519C221.628 107.519 222.196 106.951 222.196 106.25C222.196 105.549 221.628 104.981 220.927 104.981C220.226 104.981 219.658 105.549 219.658 106.25C219.658 106.951 220.226 107.519 220.927 107.519Z" fill="#1C1C1E"/>
+</g>
+</g>
+<g id="Icon/Fill/more_2">
+<g id="Group_38">
+<path id="Vector_57" d="M213.073 49.5188C213.774 49.5188 214.342 48.9507 214.342 48.25C214.342 47.5493 213.774 46.9813 213.073 46.9813C212.372 46.9813 211.804 47.5493 211.804 48.25C211.804 48.9507 212.372 49.5188 213.073 49.5188Z" fill="#1C1C1E"/>
+<path id="Vector_58" d="M217 49.5188C217.701 49.5188 218.269 48.9507 218.269 48.25C218.269 47.5493 217.701 46.9813 217 46.9813C216.299 46.9813 215.731 47.5493 215.731 48.25C215.731 48.9507 216.299 49.5188 217 49.5188Z" fill="#1C1C1E"/>
+<path id="Vector_59" d="M220.927 49.5188C221.628 49.5188 222.196 48.9507 222.196 48.25C222.196 47.5493 221.628 46.9813 220.927 46.9813C220.226 46.9813 219.658 47.5493 219.658 48.25C219.658 48.9507 220.226 49.5188 220.927 49.5188Z" fill="#1C1C1E"/>
+</g>
+</g>
+<g id="Icon/Run">
+<rect width="13" height="14" transform="translate(48 80)" fill="white"/>
+<g id="Glyph">
+<path d="M57.2367 83.5826C57.8562 83.5826 58.3584 83.0418 58.3584 82.3747C58.3584 81.7075 57.8562 81.1667 57.2367 81.1667C56.6172 81.1667 56.115 81.7075 56.115 82.3747C56.115 83.0418 56.6172 83.5826 57.2367 83.5826Z" fill="#1C1C1E"/>
+<path d="M56.5507 86.5839C56.6797 86.7903 56.8644 86.9491 57.0798 87.0387C57.2953 87.1284 57.5311 87.1446 57.7554 87.0852L59.6152 86.5845L59.3443 85.4127L57.4846 85.9134L56.7111 84.665C56.6296 84.5327 56.5245 84.4191 56.4021 84.3306C56.2797 84.2421 56.1423 84.1805 55.9978 84.1492L53.8407 83.6841C53.5994 83.6322 53.349 83.6671 53.1279 83.7836C52.9069 83.9 52.7275 84.0915 52.6175 84.3286L51.6876 86.3314L52.691 86.872L53.6209 84.8685L54.7241 85.1065L51.8716 90.2265H49.3848V91.4345H51.8716C52.2631 91.4345 52.6315 91.2098 52.8334 90.848L53.9092 88.9177L56.8082 89.5422L57.8267 92.8334L58.89 92.451L57.8721 89.1605C57.8091 88.9586 57.6979 88.778 57.5497 88.637C57.4014 88.496 57.2213 88.3995 57.0275 88.3572L55.3231 87.9906L56.3169 86.2064L56.5507 86.5839Z" fill="#1C1C1E"/>
+</g>
+</g>
+<g id="Icon/Line/filter">
+<g id="Group_39">
+<path id="Vector_60" d="M122.167 45.2291H128.208M130.625 45.2291H131.833M122.167 51.2708H124.583M127 51.2708H131.833" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_61" d="M129.417 46.4375C130.084 46.4375 130.625 45.8965 130.625 45.2291C130.625 44.5618 130.084 44.0208 129.417 44.0208C128.749 44.0208 128.208 44.5618 128.208 45.2291C128.208 45.8965 128.749 46.4375 129.417 46.4375Z" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_62" d="M125.792 52.4792C126.459 52.4792 127 51.9382 127 51.2708C127 50.6035 126.459 50.0625 125.792 50.0625C125.124 50.0625 124.583 50.6035 124.583 51.2708C124.583 51.9382 125.124 52.4792 125.792 52.4792Z" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<path id="LINE ICON" d="M10.3793 16V11.6364H11.3018V15.2393H13.1726V16H10.3793ZM14.7061 11.6364V16H13.7836V11.6364H14.7061ZM19.1151 11.6364V16H18.3182L16.4197 13.2536H16.3878V16H15.4652V11.6364H16.2749L18.1584 14.3807H18.1967V11.6364H19.1151ZM19.8773 16V11.6364H22.8176V12.397H20.7999V13.4368H22.6664V14.1974H20.7999V15.2393H22.8262V16H19.8773ZM25.8624 11.6364V16H24.9398V11.6364H25.8624ZM30.4716 13.1641H29.5384C29.5213 13.0433 29.4865 12.9361 29.4339 12.8423C29.3814 12.7472 29.3139 12.6662 29.2315 12.5994C29.1491 12.5327 29.054 12.4815 28.946 12.446C28.8395 12.4105 28.7237 12.3928 28.5987 12.3928C28.3729 12.3928 28.1761 12.4489 28.0085 12.5611C27.8409 12.6719 27.7109 12.8338 27.6186 13.0469C27.5263 13.2585 27.4801 13.5156 27.4801 13.8182C27.4801 14.1293 27.5263 14.3906 27.6186 14.6023C27.7124 14.8139 27.843 14.9737 28.0107 15.0817C28.1783 15.1896 28.3722 15.2436 28.5923 15.2436C28.7159 15.2436 28.8303 15.2273 28.9354 15.1946C29.0419 15.1619 29.1364 15.1143 29.2188 15.0518C29.3011 14.9879 29.3693 14.9105 29.4233 14.8196C29.4787 14.7287 29.517 14.625 29.5384 14.5085L30.4716 14.5128C30.4474 14.7131 30.3871 14.9062 30.2905 15.0923C30.1953 15.277 30.0668 15.4425 29.9048 15.5888C29.7443 15.7337 29.5526 15.8487 29.3295 15.9339C29.108 16.0178 28.8572 16.0597 28.5774 16.0597C28.1882 16.0597 27.8402 15.9716 27.5334 15.7955C27.228 15.6193 26.9865 15.3643 26.8089 15.0305C26.6328 14.6967 26.5447 14.2926 26.5447 13.8182C26.5447 13.3423 26.6342 12.9375 26.8132 12.6037C26.9922 12.2699 27.2351 12.0156 27.5419 11.8409C27.8487 11.6648 28.1939 11.5767 28.5774 11.5767C28.8303 11.5767 29.0646 11.6122 29.2805 11.6832C29.4979 11.7543 29.6903 11.858 29.858 11.9943C30.0256 12.1293 30.1619 12.2947 30.267 12.4908C30.3736 12.6868 30.4418 12.9112 30.4716 13.1641ZM35.1431 13.8182C35.1431 14.294 35.0529 14.6989 34.8725 15.0327C34.6935 15.3665 34.4492 15.6214 34.1396 15.7976C33.8313 15.9723 33.4847 16.0597 33.0998 16.0597C32.712 16.0597 32.364 15.9716 32.0558 15.7955C31.7475 15.6193 31.5039 15.3643 31.3249 15.0305C31.146 14.6967 31.0565 14.2926 31.0565 13.8182C31.0565 13.3423 31.146 12.9375 31.3249 12.6037C31.5039 12.2699 31.7475 12.0156 32.0558 11.8409C32.364 11.6648 32.712 11.5767 33.0998 11.5767C33.4847 11.5767 33.8313 11.6648 34.1396 11.8409C34.4492 12.0156 34.6935 12.2699 34.8725 12.6037C35.0529 12.9375 35.1431 13.3423 35.1431 13.8182ZM34.2077 13.8182C34.2077 13.5099 34.1616 13.25 34.0692 13.0384C33.9783 12.8267 33.8498 12.6662 33.6836 12.5568C33.5174 12.4474 33.3228 12.3928 33.0998 12.3928C32.8768 12.3928 32.6822 12.4474 32.516 12.5568C32.3498 12.6662 32.2205 12.8267 32.1282 13.0384C32.0373 13.25 31.9918 13.5099 31.9918 13.8182C31.9918 14.1264 32.0373 14.3864 32.1282 14.598C32.2205 14.8097 32.3498 14.9702 32.516 15.0795C32.6822 15.1889 32.8768 15.2436 33.0998 15.2436C33.3228 15.2436 33.5174 15.1889 33.6836 15.0795C33.8498 14.9702 33.9783 14.8097 34.0692 14.598C34.1616 14.3864 34.2077 14.1264 34.2077 13.8182ZM39.4764 11.6364V16H38.6795L36.7811 13.2536H36.7491V16H35.8265V11.6364H36.6362L38.5197 14.3807H38.5581V11.6364H39.4764Z" fill="#1C1C1E"/>
+<path id="&#235;&#157;&#188;&#236;&#157;&#184; &#194;&#183; &#234;&#184;&#176;&#235;&#179;&#184; / &#235;&#185;&#132;&#237;&#153;&#156;&#236;&#132;&#177; &#236;&#131;&#129;&#237;&#131;&#156;" d="M53.5693 11.54V13.249H54.2725V13.6396H53.5693V15.9248H53.1104V11.54H53.5693ZM50.332 12.3115V11.9355H52.334V13.542H50.8008V14.4893C51.5503 14.4868 52.1094 14.46 52.749 14.3428L52.793 14.7188C52.1094 14.8457 51.5186 14.875 50.6982 14.8799H50.3418V13.166H51.875V12.3115H50.332ZM58.1104 11.5449V14.7236H57.6465V11.5449H58.1104ZM54.5703 12.9219C54.5728 12.2896 55.0757 11.8403 55.7373 11.8379C56.3965 11.8403 56.8994 12.2896 56.8994 12.9219C56.8994 13.564 56.3965 14.0107 55.7373 14.0107C55.0757 14.0107 54.5728 13.564 54.5703 12.9219ZM55.0244 12.9219C55.022 13.3345 55.3296 13.6055 55.7373 13.6055C56.1377 13.6055 56.4453 13.3345 56.4453 12.9219C56.4453 12.519 56.1377 12.2432 55.7373 12.2432C55.3296 12.2432 55.022 12.519 55.0244 12.9219ZM55.249 15.8223V14.4014H55.7178V15.4463H58.2422V15.8223H55.249ZM60.5225 14.2988C60.332 14.2964 60.1733 14.1426 60.1758 13.9521C60.1733 13.7617 60.332 13.6055 60.5225 13.6055C60.7104 13.6055 60.8667 13.7617 60.8691 13.9521C60.8667 14.1426 60.7104 14.2964 60.5225 14.2988ZM66.2012 11.54V15.915H65.7324V11.54H66.2012ZM62.6074 14.7432C63.7695 14.189 64.3384 13.4004 64.4287 12.3799H62.8174V12.0088H64.8975C64.8975 13.2905 64.353 14.3989 62.8516 15.1191L62.6074 14.7432ZM67.8662 11.7061V12.2236H69.8926V11.7061H70.3564V13.4736H69.1064V13.9033H70.874V14.2842H66.8848V13.9033H68.6475V13.4736H67.4072V11.7061H67.8662ZM67.3877 15.8223V14.5967H67.8564V15.4463H70.4248V15.8223H67.3877ZM67.8662 13.0977H69.8926V12.585H67.8662V13.0977ZM73.9307 11.7988L72.793 16.0322H72.3291L73.4668 11.7988H73.9307ZM79.0039 11.54V15.9248H78.54V11.54H79.0039ZM75.625 14.875V11.9062H76.0889V13.0293H77.2656V11.9062H77.7246V14.875H75.625ZM76.0889 14.4941H77.2656V13.3955H76.0889V14.4941ZM83.1445 11.54V12.6289H83.7695V13.0244H83.1445V14.1182H82.6807V11.54H83.1445ZM79.6729 13.7031C80.0122 13.7031 80.4053 13.7007 80.8154 13.6909V13.4443C80.3125 13.3979 80 13.1953 80.0049 12.8682C80 12.5117 80.4102 12.3018 81.0449 12.3018C81.6748 12.3018 82.0825 12.5117 82.085 12.8682C82.0825 13.1929 81.7749 13.3955 81.2793 13.4443V13.6714C81.6699 13.6543 82.0654 13.6226 82.4316 13.5713L82.4707 13.874C81.5308 14.0278 80.4907 14.0352 79.7217 14.0352L79.6729 13.7031ZM79.7852 12.1748V11.8525H80.8154V11.501H81.2793V11.8525H82.3096V12.1748H79.7852ZM80.2539 14.626V14.3037H83.1445V15.2168H80.7275V15.5488H83.3057V15.8711H80.2637V14.9189H82.6855V14.626H80.2539ZM80.4443 12.8682C80.4443 13.0439 80.6714 13.1514 81.0449 13.1514C81.4136 13.1514 81.6431 13.0439 81.6406 12.8682C81.6431 12.6997 81.4136 12.6045 81.0449 12.6045C80.6714 12.6045 80.4443 12.6997 80.4443 12.8682ZM85.5762 12.1943C85.5737 12.8071 85.9717 13.354 86.6357 13.5713L86.3818 13.9326C85.9009 13.7568 85.5469 13.4199 85.3564 12.9805C85.1685 13.481 84.7876 13.874 84.2578 14.0645L84.0088 13.6934C84.707 13.4541 85.1123 12.8706 85.1172 12.2139V11.7842H85.5762V12.1943ZM84.7266 15.0801C84.7241 14.5503 85.2856 14.2427 86.2061 14.2451C87.1216 14.2427 87.6831 14.5503 87.6855 15.0801C87.6831 15.6074 87.1216 15.9077 86.2061 15.9053C85.2856 15.9077 84.7241 15.6074 84.7266 15.0801ZM85.1855 15.0801C85.1831 15.3706 85.564 15.5415 86.2061 15.5391C86.8433 15.5415 87.2241 15.3706 87.2266 15.0801C87.2241 14.7798 86.8433 14.6064 86.2061 14.6064C85.564 14.6064 85.1831 14.7798 85.1855 15.0801ZM86.2842 12.8096V12.4287H87.207V11.54H87.6709V14.123H87.207V12.8096H86.2842ZM91.0742 12.2383C91.0718 12.812 91.4771 13.3467 92.1289 13.5615L91.8799 13.9277C91.4014 13.7593 91.0425 13.4175 90.8521 12.9854C90.6616 13.4761 90.2905 13.8618 89.7803 14.0498L89.5312 13.6787C90.2148 13.437 90.6104 12.8535 90.6152 12.1992V11.7695H91.0742V12.2383ZM90.1221 15.0947C90.1221 14.582 90.6812 14.2817 91.5918 14.2842C92.4902 14.2817 93.042 14.582 93.042 15.0947C93.042 15.6123 92.4902 15.9077 91.5918 15.9053C90.6812 15.9077 90.1221 15.6123 90.1221 15.0947ZM90.5859 15.0947C90.5835 15.3828 90.9595 15.5391 91.5918 15.5439C92.2192 15.5391 92.5903 15.3828 92.5879 15.0947C92.5903 14.8164 92.2192 14.6504 91.5918 14.6504C90.9595 14.6504 90.5835 14.8164 90.5859 15.0947ZM92.5391 14.1816V11.54H93.0029V12.6387H93.6377V13.0293H93.0029V14.1816H92.5391ZM95.8057 12.0283V12.3994H94.4971V13.1807H95.7324V13.5469H94.4971V14.4697C95.0903 14.4648 95.481 14.4453 95.9424 14.3672L95.9814 14.748C95.4688 14.8408 95.0439 14.8604 94.3457 14.8604H94.0527V12.0283H95.8057ZM96.2354 15.7002V11.623H96.6797V13.2783H97.207V11.54H97.6514V15.915H97.207V13.6543H96.6797V15.7002H96.2354Z" fill="#8E8E93"/>
+<path id="FILL ICON" d="M10.3793 74V69.6364H13.2685V70.397H11.3018V71.4368H13.0767V72.1974H11.3018V74H10.3793ZM14.8116 69.6364V74H13.889V69.6364H14.8116ZM15.5707 74V69.6364H16.4933V73.2393H18.364V74H15.5707ZM18.975 74V69.6364H19.8975V73.2393H21.7683V74H18.975ZM24.6905 69.6364V74H23.7679V69.6364H24.6905ZM29.2997 71.1641H28.3665C28.3494 71.0433 28.3146 70.9361 28.2621 70.8423C28.2095 70.7472 28.142 70.6662 28.0597 70.5994C27.9773 70.5327 27.8821 70.4815 27.7741 70.446C27.6676 70.4105 27.5518 70.3928 27.4268 70.3928C27.201 70.3928 27.0043 70.4489 26.8366 70.5611C26.669 70.6719 26.5391 70.8338 26.4467 71.0469C26.3544 71.2585 26.3082 71.5156 26.3082 71.8182C26.3082 72.1293 26.3544 72.3906 26.4467 72.6023C26.5405 72.8139 26.6712 72.9737 26.8388 73.0817C27.0064 73.1896 27.2003 73.2436 27.4205 73.2436C27.544 73.2436 27.6584 73.2273 27.7635 73.1946C27.87 73.1619 27.9645 73.1143 28.0469 73.0518C28.1293 72.9879 28.1974 72.9105 28.2514 72.8196C28.3068 72.7287 28.3452 72.625 28.3665 72.5085L29.2997 72.5128C29.2756 72.7131 29.2152 72.9062 29.1186 73.0923C29.0234 73.277 28.8949 73.4425 28.733 73.5888C28.5724 73.7337 28.3807 73.8487 28.1577 73.9339C27.9361 74.0178 27.6854 74.0597 27.4055 74.0597C27.0163 74.0597 26.6683 73.9716 26.3615 73.7955C26.0561 73.6193 25.8146 73.3643 25.6371 73.0305C25.4609 72.6967 25.3729 72.2926 25.3729 71.8182C25.3729 71.3423 25.4624 70.9375 25.6413 70.6037C25.8203 70.2699 26.0632 70.0156 26.37 69.8409C26.6768 69.6648 27.022 69.5767 27.4055 69.5767C27.6584 69.5767 27.8928 69.6122 28.1087 69.6832C28.326 69.7543 28.5185 69.858 28.6861 69.9943C28.8537 70.1293 28.9901 70.2947 29.0952 70.4908C29.2017 70.6868 29.2699 70.9112 29.2997 71.1641ZM33.9712 71.8182C33.9712 72.294 33.881 72.6989 33.7006 73.0327C33.5217 73.3665 33.2773 73.6214 32.9677 73.7976C32.6594 73.9723 32.3129 74.0597 31.9279 74.0597C31.5401 74.0597 31.1921 73.9716 30.8839 73.7955C30.5756 73.6193 30.332 73.3643 30.1531 73.0305C29.9741 72.6967 29.8846 72.2926 29.8846 71.8182C29.8846 71.3423 29.9741 70.9375 30.1531 70.6037C30.332 70.2699 30.5756 70.0156 30.8839 69.8409C31.1921 69.6648 31.5401 69.5767 31.9279 69.5767C32.3129 69.5767 32.6594 69.6648 32.9677 69.8409C33.2773 70.0156 33.5217 70.2699 33.7006 70.6037C33.881 70.9375 33.9712 71.3423 33.9712 71.8182ZM33.0359 71.8182C33.0359 71.5099 32.9897 71.25 32.8974 71.0384C32.8065 70.8267 32.6779 70.6662 32.5117 70.5568C32.3455 70.4474 32.1509 70.3928 31.9279 70.3928C31.7049 70.3928 31.5103 70.4474 31.3441 70.5568C31.1779 70.6662 31.0487 70.8267 30.9563 71.0384C30.8654 71.25 30.82 71.5099 30.82 71.8182C30.82 72.1264 30.8654 72.3864 30.9563 72.598C31.0487 72.8097 31.1779 72.9702 31.3441 73.0795C31.5103 73.1889 31.7049 73.2436 31.9279 73.2436C32.1509 73.2436 32.3455 73.1889 32.5117 73.0795C32.6779 72.9702 32.8065 72.8097 32.8974 72.598C32.9897 72.3864 33.0359 72.1264 33.0359 71.8182ZM38.3045 69.6364V74H37.5076L35.6092 71.2536H35.5772V74H34.6547V69.6364H35.4643L37.3478 72.3807H37.3862V69.6364H38.3045Z" fill="#1C1C1E"/>
+<path id="&#237;&#149;&#132; &#194;&#183; &#236;&#132;&#160;&#237;&#131;&#157; / &#237;&#153;&#156;&#236;&#132;&#177; &#236;&#131;&#129;&#237;&#131;&#156;" d="M53.7988 69.54V71.8008H53.3301V69.54H53.7988ZM50.2344 71.2979C50.4004 71.2979 50.5811 71.2954 50.7666 71.293V70.1943H50.3516V69.8281H52.7295V70.1943H52.3096V71.2295C52.522 71.2148 52.7319 71.1953 52.9297 71.1709L52.9492 71.5078C52.0752 71.6396 51.0571 71.6714 50.2881 71.6689L50.2344 71.2979ZM50.8936 72.3672V72.001H53.7988V73.085H51.3623V73.5H53.9502V73.8711H50.9082V72.748H53.3398V72.3672H50.8936ZM51.2109 71.2832C51.4258 71.2759 51.6455 71.2686 51.8652 71.2563V70.1943H51.2109V71.2832ZM56.2012 72.2988C56.0107 72.2964 55.8521 72.1426 55.8545 71.9521C55.8521 71.7617 56.0107 71.6055 56.2012 71.6055C56.3892 71.6055 56.5454 71.7617 56.5479 71.9521C56.5454 72.1426 56.3892 72.2964 56.2012 72.2988ZM59.7852 70.3408C59.7876 70.9341 60.1807 71.5054 60.8398 71.7373L60.5859 72.0986C60.1099 71.9155 59.751 71.5542 59.563 71.1025C59.375 71.6055 59.0015 72.0034 58.4863 72.2012L58.2373 71.835C58.9185 71.5933 59.3237 70.9854 59.3262 70.3262V69.8086H59.7852V70.3408ZM59.0332 73.8223V72.4404H59.502V73.4463H61.9873V73.8223H59.0332ZM60.5029 70.9219V70.541H61.4258V69.5449H61.8896V72.8066H61.4258V70.9219H60.5029ZM64.4531 69.8525V70.2285H63.1885V70.7168H64.4043V71.0732H63.1885V71.6055C63.7744 71.6006 64.1577 71.5786 64.6094 71.4932L64.6533 71.874C64.1406 71.9692 63.7231 71.9888 63.0273 71.9863H62.7441V69.8525H64.4531ZM63.3203 72.7871V72.4111H66.2939V73.915H65.835V72.7871H63.3203ZM64.8828 72.167V69.623H65.3174V70.6582H65.8545V69.5449H66.2939V72.2012H65.8545V71.0342H65.3174V72.167H64.8828ZM69.6094 69.7988L68.4717 74.0322H68.0078L69.1455 69.7988H69.6094ZM74.502 69.54V70.6289H75.127V71.0244H74.502V72.1182H74.0381V69.54H74.502ZM71.0303 71.7031C71.3696 71.7031 71.7627 71.7007 72.1729 71.6909V71.4443C71.6699 71.3979 71.3574 71.1953 71.3623 70.8682C71.3574 70.5117 71.7676 70.3018 72.4023 70.3018C73.0322 70.3018 73.4399 70.5117 73.4424 70.8682C73.4399 71.1929 73.1323 71.3955 72.6367 71.4443V71.6714C73.0273 71.6543 73.4229 71.6226 73.7891 71.5713L73.8281 71.874C72.8882 72.0278 71.8481 72.0352 71.0791 72.0352L71.0303 71.7031ZM71.1426 70.1748V69.8525H72.1729V69.501H72.6367V69.8525H73.667V70.1748H71.1426ZM71.6113 72.626V72.3037H74.502V73.2168H72.085V73.5488H74.6631V73.8711H71.6211V72.9189H74.043V72.626H71.6113ZM71.8018 70.8682C71.8018 71.0439 72.0288 71.1514 72.4023 71.1514C72.771 71.1514 73.0005 71.0439 72.998 70.8682C73.0005 70.6997 72.771 70.6045 72.4023 70.6045C72.0288 70.6045 71.8018 70.6997 71.8018 70.8682ZM76.9336 70.1943C76.9312 70.8071 77.3291 71.354 77.9932 71.5713L77.7393 71.9326C77.2583 71.7568 76.9043 71.4199 76.7139 70.9805C76.5259 71.481 76.145 71.874 75.6152 72.0645L75.3662 71.6934C76.0645 71.4541 76.4697 70.8706 76.4746 70.2139V69.7842H76.9336V70.1943ZM76.084 73.0801C76.0815 72.5503 76.6431 72.2427 77.5635 72.2451C78.479 72.2427 79.0405 72.5503 79.043 73.0801C79.0405 73.6074 78.479 73.9077 77.5635 73.9053C76.6431 73.9077 76.0815 73.6074 76.084 73.0801ZM76.543 73.0801C76.5405 73.3706 76.9214 73.5415 77.5635 73.5391C78.2007 73.5415 78.5815 73.3706 78.584 73.0801C78.5815 72.7798 78.2007 72.6064 77.5635 72.6064C76.9214 72.6064 76.5405 72.7798 76.543 73.0801ZM77.6416 70.8096V70.4287H78.5645V69.54H79.0283V72.123H78.5645V70.8096H77.6416ZM82.4316 70.2383C82.4292 70.812 82.8345 71.3467 83.4863 71.5615L83.2373 71.9277C82.7588 71.7593 82.3999 71.4175 82.2095 70.9854C82.019 71.4761 81.6479 71.8618 81.1377 72.0498L80.8887 71.6787C81.5723 71.437 81.9678 70.8535 81.9727 70.1992V69.7695H82.4316V70.2383ZM81.4795 73.0947C81.4795 72.582 82.0386 72.2817 82.9492 72.2842C83.8477 72.2817 84.3994 72.582 84.3994 73.0947C84.3994 73.6123 83.8477 73.9077 82.9492 73.9053C82.0386 73.9077 81.4795 73.6123 81.4795 73.0947ZM81.9434 73.0947C81.9409 73.3828 82.3169 73.5391 82.9492 73.5439C83.5767 73.5391 83.9478 73.3828 83.9453 73.0947C83.9478 72.8164 83.5767 72.6504 82.9492 72.6504C82.3169 72.6504 81.9409 72.8164 81.9434 73.0947ZM83.8965 72.1816V69.54H84.3604V70.6387H84.9951V71.0293H84.3604V72.1816H83.8965ZM87.1631 70.0283V70.3994H85.8545V71.1807H87.0898V71.5469H85.8545V72.4697C86.4478 72.4648 86.8384 72.4453 87.2998 72.3672L87.3389 72.748C86.8262 72.8408 86.4014 72.8604 85.7031 72.8604H85.4102V70.0283H87.1631ZM87.5928 73.7002V69.623H88.0371V71.2783H88.5645V69.54H89.0088V73.915H88.5645V71.6543H88.0371V73.7002H87.5928Z" fill="#8E8E93"/>
+<rect id="Divider" x="10" y="62" width="234" height="0.5" fill="#EAEAEB"/>
+<g id="Icon/Line/fire">
+<path id="Flame" d="M233 48.6571C233.788 48.6571 234.429 48.0093 234.429 47.2101C234.429 46.4109 234.143 46.0525 233.857 45.4737C233.245 44.2328 233.729 43.126 235 42C235.286 43.447 236.143 44.8365 237.286 45.7631C238.429 46.6888 239 47.7889 239 48.9475C239 51.185 237.21 53 235 53C232.79 53 231 51.185 231 48.9475C231 48.2796 231.247 47.6193 231.571 47.2101C231.571 48.0093 232.212 48.6571 233 48.6571Z" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g id="Icon/Fill/fire">
+<path id="Flame_2" d="M233 106.657C233.788 106.657 234.429 106.009 234.429 105.21C234.429 104.411 234.143 104.053 233.857 103.474C233.245 102.233 233.729 101.126 235 100C235.286 101.447 236.143 102.836 237.286 103.763C238.429 104.689 239 105.789 239 106.947C239 109.185 237.21 111 235 111C232.79 111 231 109.185 231 106.947C231 106.28 231.247 105.619 231.571 105.21C231.571 106.009 232.212 106.657 233 106.657Z" fill="#1C1C1E" stroke="#1C1C1E" stroke-width="0.6" stroke-linejoin="round"/>
+</g>
+<g id="Icon/Fill/my">
+<circle id="Ellipse" cx="91" cy="83.5313" r="2.5375" fill="#1C1C1E"/>
+<path id="Vector_63" d="M86.167 91.265C86.167 88.787 88.342 87.096 91 87.096C93.658 87.096 95.833 88.787 95.833 91.265C95.833 91.748 95.471 91.99 95.048 91.99H86.952C86.529 91.99 86.167 91.748 86.167 91.265Z" fill="#1C1C1E"/>
+</g>
+<g id="Icon/Fill/clock">
+<circle id="Ellipse_2" cx="163" cy="86.25" r="6.04167" fill="#1C1C1E"/>
+<path id="Vector_64" d="M163 83.229V86.25L165.115 87.458" stroke="white" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g id="Icon/Fill/calendar">
+<rect id="Rectangle" x="175.562" y="82.0208" width="10.875" height="9.66667" rx="1.8125" fill="#1C1C1E"/>
+<path id="Vector_65" d="M178.583 80.813V83.229" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_66" d="M183.417 80.813V83.229" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_67" d="M175.865 85.042H186.135" stroke="white" stroke-width="0.845833" stroke-linecap="round" stroke-linejoin="round"/>
+<circle id="Ellipse_3" cx="178.583" cy="87.7604" r="0.785417" fill="white"/>
+<circle id="Ellipse_4" cx="181" cy="87.7604" r="0.785417" fill="white"/>
+<circle id="Ellipse_5" cx="183.417" cy="87.7604" r="0.785417" fill="white"/>
+</g>
+<g id="Icon/Fill/share">
+<rect id="Rectangle_2" x="14.1667" y="104.438" width="9.66667" height="7.55208" rx="1.8125" fill="#1C1C1E"/>
+<path id="Vector_68" d="M19 100.51V104.438" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_69" d="M16.885 102.625L19 100.51L21.115 102.625" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_70" d="M19 104.438V108.063" stroke="white" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g id="Icon/Fill/plus">
+<circle id="Ellipse_6" cx="37" cy="106.25" r="6.04167" fill="#1C1C1E"/>
+<path id="Vector_71" d="M37 103.531V108.969" stroke="white" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_72" d="M34.281 106.25H39.719" stroke="white" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g id="Icon/Fill/check">
+<circle id="Ellipse_7" cx="55" cy="106.25" r="6.04167" fill="#1C1C1E"/>
+<path id="Vector_73" d="M52.281 106.431L54.154 108.244L57.719 104.438" stroke="white" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g id="Icon/Fill/close">
+<circle id="Ellipse_8" cx="73" cy="106.25" r="6.04167" fill="#1C1C1E"/>
+<path id="Vector_74" d="M70.885 104.135L75.115 108.365" stroke="white" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_75" d="M75.115 104.135L70.885 108.365" stroke="white" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g id="Icon/Fill/filter">
+<path id="Vector_76" d="M121.563 103.229H132.438" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_77" d="M121.563 109.271H132.438" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<circle id="Ellipse_9" cx="128.813" cy="103.229" r="1.93333" fill="#1C1C1E"/>
+<circle id="Ellipse_10" cx="125.188" cy="109.271" r="1.93333" fill="#1C1C1E"/>
+</g>
+<g id="Icon/Fill/timer">
+<circle id="Ellipse_11" cx="163" cy="107.156" r="5.13542" fill="#1C1C1E"/>
+<rect id="Rectangle_3" x="161.188" y="100.208" width="3.625" height="1.32917" rx="0.664583" fill="#1C1C1E"/>
+<path id="Vector_78" d="M166.988 102.383L167.954 101.417" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_79" d="M163 104.74V107.156" stroke="white" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g id="Icon/Line/run">
+<g id="Group 53">
+<ellipse id="Ellipse_12" cx="57.0788" cy="23.8846" rx="0.884581" ry="0.884585" stroke="#1C1C1E" stroke-width="0.8"/>
+<path id="Vector_80" d="M56.6268 26.2544L54.7108 30.0846" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_81" d="M56.6268 26.2544L54.1129 26.0146L52.9151 27.8104" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_82" d="M56.1474 27.2115L57.4645 28.7684L59.4999 28.1695" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_83" d="M54.7108 30.0847L53.2743 32.4792H51" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_84" d="M54.7108 30.0847L57.1054 30.9232L58.0634 33.5567" stroke="#1C1C1E" stroke-width="1.0875" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_1595_48424">
+<rect width="14.5" height="14.5" fill="white" transform="translate(101.75 21)"/>
+</clipPath>
+</defs>
+</svg>
+          </div>
+          <p class="iconset__hint">아이콘에 마우스를 올리면 라인 · 필 상태가 함께 표시돼요</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 04 HOME ===================== -->
+<section class="home" id="home" data-cp="홈 화면">
+  <img class="blob blob--h2" src="assets/svg/blob-h2.svg" alt="">
+  <img class="blob blob--h1" src="assets/svg/blob-h1.svg" alt="">
+  <div class="home__inner" id="homeInner">
+    <div class="container home__grid">
+      <div data-reveal>
+        <p class="eyebrow">Home · Landing</p>
+        <h2 class="h2">앱을 열면,<br>오늘의 러닝이 한눈에</h2>
+        <p class="lead">이번 주 달린 기록부터 오늘 참여할 일정, 내가 속한 정기 크루와 러너들의 피드까지 홈 화면 하나에서 바로 확인하고 이어서 행동할 수 있어요.</p>
+        <ul class="home-list" id="homeList">
+          <li class="is-active"><b>이번주 요약</b><span>목표 대비 달성률 · 총 거리 · 페이스</span></li>
+          <li><b>오늘 일정</b><span>참여 예정 러닝의 시간 · 거리 · 인원</span></li>
+          <li><b>내 정기 크루</b><span>가입한 크루 소식 바로가기</span></li>
+          <li><b>러너 피드</b><span>주변 러너들의 기록과 코스</span></li>
+        </ul>
+      </div>
+      <div class="home__phones" id="homePhones">
+        <div class="phone"><i class="phone__btn phone__btn--a"></i><i class="phone__btn phone__btn--b"></i><i class="phone__btn phone__btn--c"></i><i class="phone__btn phone__btn--d"></i><i class="phone__btn phone__btn--e"></i><div class="phone__body"></div><div class="phone__edge"></div><div class="phone__bezel"></div><div class="phone__screen"><img src="assets/img/home-1.jpg" alt="홈 상단: 이번주 요약 68.4km와 오늘 일정" loading="lazy"></div><div class="phone__island"></div></div>
+        <div class="phone"><i class="phone__btn phone__btn--a"></i><i class="phone__btn phone__btn--b"></i><i class="phone__btn phone__btn--c"></i><i class="phone__btn phone__btn--d"></i><i class="phone__btn phone__btn--e"></i><div class="phone__body"></div><div class="phone__edge"></div><div class="phone__bezel"></div><div class="phone__screen"><img src="assets/img/home-2.jpg" alt="홈 스크롤: 내 정기 크루와 러너 피드" loading="lazy"></div><div class="phone__island"></div></div>
+        <div class="phone"><i class="phone__btn phone__btn--a"></i><i class="phone__btn phone__btn--b"></i><i class="phone__btn phone__btn--c"></i><i class="phone__btn phone__btn--d"></i><i class="phone__btn phone__btn--e"></i><div class="phone__body"></div><div class="phone__edge"></div><div class="phone__bezel"></div><div class="phone__screen"><img src="assets/img/home-3.jpg" alt="이번주 기록 상세 그래프" loading="lazy"></div><div class="phone__island"></div></div>
+        <div class="stat-card" id="statCard">
+          <div class="ring"><svg viewBox="0 0 54 54"><circle class="ring__bg" cx="27" cy="27" r="22"/><circle class="ring__fg" id="ringFg" cx="27" cy="27" r="22"/></svg><b id="ringTxt">68%</b></div>
+          <div><small>이번 주 달린 거리</small><strong><span id="weekKm">68.4</span><em>km</em></strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 05 CORE FEATURES ===================== -->
+<section class="features" id="features" data-cp="핵심 기능">
+  <div class="container">
+    <div class="features__head" data-reveal>
+      <p class="eyebrow">Core Features</p>
+      <h2 class="h2">루트크루의 핵심 기능</h2>
+      <p class="lead">찾고, 고르고, 만들고, 나누고, 함께 달리는 다섯 가지 경험</p>
+    </div>
+
+    <div class="f-grid">
+      <!-- F01 -->
+      <article class="f-card" id="f1">
+        <div class="f-card__top"><span class="f-num">01</span><h3 class="f-title">내 주변의 크루 탐색</h3></div>
+        <p class="f-desc">내 위치 주변의 정기 크루를 지도·리스트로 찾고, 거리·페이스로 비교해요.</p>
+        <div class="tags"><span class="tag">위치 기반</span><span class="tag">반경 필터</span><span class="tag">Pace Temp</span></div>
+        <div class="f-stage">
+          <span class="pin" style="left:6%;top:18%;--d:0s"><svg viewBox="0 0 30 38"><path d="M15 0C6.7 0 0 6.6 0 14.8 0 25.9 15 38 15 38s15-12.1 15-23.2C30 6.6 23.3 0 15 0z" fill="#2CF1B0"/><circle cx="15" cy="14.5" r="5.5" fill="#fff"/></svg></span>
+          <span class="pin" style="right:7%;top:40%;--d:.8s"><svg viewBox="0 0 30 38"><path d="M15 0C6.7 0 0 6.6 0 14.8 0 25.9 15 38 15 38s15-12.1 15-23.2C30 6.6 23.3 0 15 0z" fill="#16C98D"/><circle cx="15" cy="14.5" r="5.5" fill="#fff"/></svg></span>
+          <span class="pin" style="left:12%;top:62%;--d:1.6s"><svg viewBox="0 0 30 38"><path d="M15 0C6.7 0 0 6.6 0 14.8 0 25.9 15 38 15 38s15-12.1 15-23.2C30 6.6 23.3 0 15 0z" fill="#13834F"/><circle cx="15" cy="14.5" r="5.5" fill="#fff"/></svg></span>
+          <div class="phone"><i class="phone__btn phone__btn--a"></i><i class="phone__btn phone__btn--b"></i><i class="phone__btn phone__btn--c"></i><i class="phone__btn phone__btn--d"></i><i class="phone__btn phone__btn--e"></i><div class="phone__body"></div><div class="phone__edge"></div><div class="phone__bezel"></div><div class="phone__screen"><img src="assets/img/f1-map.jpg" alt="내 주변 크루 지도 화면" loading="lazy"></div><div class="phone__island"></div></div>
+          <div class="phone"><i class="phone__btn phone__btn--a"></i><i class="phone__btn phone__btn--b"></i><i class="phone__btn phone__btn--c"></i><i class="phone__btn phone__btn--d"></i><i class="phone__btn phone__btn--e"></i><div class="phone__body"></div><div class="phone__edge"></div><div class="phone__bezel"></div><div class="phone__screen"><img src="assets/img/f1-detail.jpg" alt="크루 상세 화면" loading="lazy"></div><div class="phone__island"></div></div>
+        </div>
+      </article>
+
+      <!-- F02 -->
+      <article class="f-card" id="f2" data-mode="regular">
+        <div class="f-card__top"><span class="f-num">02</span><h3 class="f-title">정기 크루 ↔ 번개 크루 스위칭</h3></div>
+        <p class="f-desc">상단 탭 하나로 꾸준히 함께하는 정기 크루와, 원하는 시간에 바로 모이는 번개 러닝을 자유롭게 오가요.</p>
+        <div class="tags"><span class="tag">정기 크루</span><span class="tag"><img src="assets/svg/lightning-tag.svg" alt="">번개 러닝</span><span class="tag">탭 전환</span></div>
+        <div class="switch" role="group" aria-label="크루 유형 전환">
+          <i class="switch__knob"></i>
+          <button type="button" data-mode="regular" aria-pressed="true">정기 크루</button>
+          <button type="button" data-mode="flash" aria-pressed="false"><img src="assets/svg/lightning-tag.svg" alt="" style="width:8px">번개 러닝</button>
+        </div>
+        <div class="f-stage">
+          <div class="phone" data-for="regular"><i class="phone__btn phone__btn--a"></i><i class="phone__btn phone__btn--b"></i><i class="phone__btn phone__btn--c"></i><i class="phone__btn phone__btn--d"></i><i class="phone__btn phone__btn--e"></i><div class="phone__body"></div><div class="phone__edge"></div><div class="phone__bezel"></div><div class="phone__screen"><img src="assets/img/f2-regular.jpg" alt="정기 크루 탭 화면" loading="lazy"></div><div class="phone__island"></div></div>
+          <div class="phone" data-for="flash"><i class="phone__btn phone__btn--a"></i><i class="phone__btn phone__btn--b"></i><i class="phone__btn phone__btn--c"></i><i class="phone__btn phone__btn--d"></i><i class="phone__btn phone__btn--e"></i><div class="phone__body"></div><div class="phone__edge"></div><div class="phone__bezel"></div><div class="phone__screen"><img src="assets/img/f2-flash.jpg" alt="번개 러닝 탭 화면" loading="lazy"></div><div class="phone__island"></div></div>
+        </div>
+      </article>
+
+      <!-- F03 -->
+      <article class="f-card" id="f3">
+        <div class="f-card__top"><span class="f-num">03</span><h3 class="f-title">나만의 코스 만들기</h3></div>
+        <p class="f-desc">지도 위에 지점을 찍어 루트를 그리고, 난이도·풍경·시간 태그와 커버 이미지를 더해 저장하고 공유해요.</p>
+        <div class="tags"><span class="tag">지도 루트 생성</span><span class="tag">태그</span><span class="tag">트랙 아카이브</span></div>
+        <div class="f-stage">
+          <svg class="f-route" viewBox="0 0 440 330" aria-hidden="true">
+            <path class="f-route__shadow" d="M18 300 C 60 250, 40 190, 110 170 S 200 210, 230 150 S 300 60, 360 90 S 420 40, 424 22"/>
+            <path class="f-route__line" id="f3Path" d="M18 300 C 60 250, 40 190, 110 170 S 200 210, 230 150 S 300 60, 360 90 S 420 40, 424 22"/>
+            <circle cx="18" cy="300" r="8"/>
+            <circle class="f-route__end" cx="424" cy="22" r="8"/>
+          </svg>
+          <div class="phone"><i class="phone__btn phone__btn--a"></i><i class="phone__btn phone__btn--b"></i><i class="phone__btn phone__btn--c"></i><i class="phone__btn phone__btn--d"></i><i class="phone__btn phone__btn--e"></i><div class="phone__body"></div><div class="phone__edge"></div><div class="phone__bezel"></div><div class="phone__screen"><img src="assets/img/f3-edit.jpg" alt="코스 지도 편집 화면" loading="lazy"></div><div class="phone__island"></div></div>
+          <div class="phone"><i class="phone__btn phone__btn--a"></i><i class="phone__btn phone__btn--b"></i><i class="phone__btn phone__btn--c"></i><i class="phone__btn phone__btn--d"></i><i class="phone__btn phone__btn--e"></i><div class="phone__body"></div><div class="phone__edge"></div><div class="phone__bezel"></div><div class="phone__screen"><img src="assets/img/f3-archive.jpg" alt="트랙 아카이브 화면" loading="lazy"></div><div class="phone__island"></div></div>
+        </div>
+      </article>
+
+      <!-- F04 -->
+      <article class="f-card" id="f4">
+        <div class="f-card__top"><span class="f-num">04</span><h3 class="f-title">루트 기반 피드</h3></div>
+        <p class="f-desc">러닝 기록과 사진, 내가 만든 코스를 피드에 올리고 좋아요·저장으로 다른 러너의 루트를 발견해요.</p>
+        <div class="tags"><span class="tag">기록 공유</span><span class="tag">코스 저장</span><span class="tag">좋아요</span></div>
+        <div class="f-stage">
+          <div class="phone"><i class="phone__btn phone__btn--a"></i><i class="phone__btn phone__btn--b"></i><i class="phone__btn phone__btn--c"></i><i class="phone__btn phone__btn--d"></i><i class="phone__btn phone__btn--e"></i><div class="phone__body"></div><div class="phone__edge"></div><div class="phone__bezel"></div><div class="phone__screen"><img src="assets/img/f4-feed.jpg" alt="피드: 크루 기록 사진" loading="lazy"></div><div class="phone__island"></div></div>
+          <div class="phone"><i class="phone__btn phone__btn--a"></i><i class="phone__btn phone__btn--b"></i><i class="phone__btn phone__btn--c"></i><i class="phone__btn phone__btn--d"></i><i class="phone__btn phone__btn--e"></i><div class="phone__body"></div><div class="phone__edge"></div><div class="phone__bezel"></div><div class="phone__screen"><img src="assets/img/f4-saved.jpg" alt="피드 보관함 화면" loading="lazy"></div><div class="phone__island"></div></div>
+          <button class="like" id="likeBtn" type="button" aria-pressed="false" aria-label="좋아요">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.2-9.4C1.7 7.8 3.8 4.5 7.2 4.5c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.4 0 5.5 3.3 4.4 6.6-1.7 4.8-9.2 9.4-9.2 9.4z"/></svg>
+            <span id="likeCount">128</span>
+          </button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 06 LIVE ===================== -->
+<section class="live" id="live" data-cp="실시간 러닝">
+  <div class="live__inner" id="liveInner">
+    <div class="container">
+      <div class="live__card">
+        <span class="countdown" id="liveTag">LIVE</span>
+        <div>
+          <div class="f-card__top"><span class="f-num">05</span><h3 class="f-title">팀원들과 실시간 상태 확인</h3></div>
+          <p class="f-desc">크루 체크인 러닝을 시작하면 함께 달리는 크루원의 위치와 거리·시간·페이스를 지도 위에서 실시간으로 확인할 수 있어요. 러닝이 끝나면 서로를 평가하는 Pace Temp로 믿고 달릴 수 있는 크루 문화를 만들어요.</p>
+          <ol class="steps" id="steps">
+            <li class="step"><b>STEP 1</b><span>카운트다운 · 크루 체크인</span><i class="step__bar"></i></li>
+            <li class="step"><b>STEP 2</b><span>크루원 실시간 위치 · 기록</span><i class="step__bar"></i></li>
+            <li class="step"><b>STEP 3</b><span>러닝 종료 후 크루 평가</span><i class="step__bar"></i></li>
+          </ol>
+          <div class="readout" aria-live="off">
+            <div class="rd-dist"><small>거리 (km)</small><strong id="rdDist">3.42</strong></div>
+            <div><small>시간</small><strong id="rdTime">21:18</strong></div>
+            <div><small>현재 페이스</small><strong>6'14"</strong></div>
+            <div class="rd-bpm"><small>심박 (bpm)</small><strong id="rdBpm">152</strong></div>
+          </div>
+        </div>
+        <div class="live__phones" id="livePhones">
+          <div class="phone"><i class="phone__btn phone__btn--a"></i><i class="phone__btn phone__btn--b"></i><i class="phone__btn phone__btn--c"></i><i class="phone__btn phone__btn--d"></i><i class="phone__btn phone__btn--e"></i><div class="phone__body"></div><div class="phone__edge"></div><div class="phone__bezel"></div><div class="phone__screen"><img src="assets/img/f5-countdown.jpg" alt="크루 런 카운트다운 화면" loading="lazy"></div><div class="phone__island"></div></div>
+          <div class="phone"><i class="phone__btn phone__btn--a"></i><i class="phone__btn phone__btn--b"></i><i class="phone__btn phone__btn--c"></i><i class="phone__btn phone__btn--d"></i><i class="phone__btn phone__btn--e"></i><div class="phone__body"></div><div class="phone__edge"></div><div class="phone__bezel"></div><div class="phone__screen"><img src="assets/img/f5-live.jpg" alt="크루 런 실시간 지도와 기록 화면" loading="lazy"></div><div class="phone__island"></div></div>
+          <div class="phone"><i class="phone__btn phone__btn--a"></i><i class="phone__btn phone__btn--b"></i><i class="phone__btn phone__btn--c"></i><i class="phone__btn phone__btn--d"></i><i class="phone__btn phone__btn--e"></i><div class="phone__body"></div><div class="phone__edge"></div><div class="phone__bezel"></div><div class="phone__screen"><img src="assets/img/f5-result.jpg" alt="크루 평가 결과 화면" loading="lazy"></div><div class="phone__island"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 07 FINISH ===================== -->
+<section class="finish" id="finish" data-theme="dark" data-cp="피니시">
+  <div class="container">
+    <span class="finish__badge"><i></i>FINISH · 5.00 KM</span>
+    <p class="finish__slogan" id="slogan">
+      <span class="w">나만의</span> <span class="w">속도로,</span><br>
+      <span class="w is-mint">나만의</span> <span class="w is-mint">길을</span> <span class="w">만들다.</span>
+    </p>
+    <div class="finish__logo">
+      <img src="assets/svg/app-icon.svg" alt="">
+      <span>ROUTE CREW</span>
+    </div>
+    <p class="finish__sub">루트크루 · 내 주변에서 시작되는 위치 기반 러닝 커뮤니티 플랫폼</p>
+    <div class="finish__foot">
+      <span>2026 HANSEI UNIVERSITY · VISUAL COMMUNICATION DESIGN · GRADUATION EXHIBITION</span>
+      <span>CONTENTS DESIGN STUDIO | LOCAL RUNNING COMMUNITY</span>
+      <a class="to-top" href="#hero">BACK TO START <i>↑</i></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><i></i><span></span></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
